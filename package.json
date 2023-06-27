@@ -1,0 +1,60 @@
+{
+  "name": "node-edge-server",
+  "version": "0.0.1",
+  "description": "Edge server for Node.js",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/esm/index.mjs"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc && node build.mjs src/*"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReeganExE/node-edge-server.git"
+  },
+  "homepage": "https://github.com/ReeganExE/node-edge-server",
+  "author": "Ninh Pham (https://github.com/ReeganExE), Yusuke Wada <yusuke@kamawada.com> (https://github.com/yusukebe)",
+  "keywords": [
+    "Ninh Pham",
+    "ReeganExE",
+    "workerd",
+    "edge-runtime",
+    "fetch"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.2",
+    "esbuild": "^0.18.10",
+    "eslint-config-relint-base": "^1.0.3",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.1.3"
+  },
+  "eslintConfig": {
+    "extends": "relint-base",
+    "ignorePatterns": [
+      "dist",
+      "examples",
+      "build"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "semi": true,
+    "tabWidth": 2
+  }
+}
