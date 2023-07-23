@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/ReeganExE/node-edge-server.git"
   },
-  "homepage": "https://github.com/ReeganExE/node-edge-server",
+  "homepage": "https://github.com/ReeganExE/node-edge-server#readme",
   "author": "Ninh Pham (https://github.com/ReeganExE), Yusuke Wada <yusuke@kamawada.com> (https://github.com/yusukebe)",
   "keywords": [
     "Ninh Pham",

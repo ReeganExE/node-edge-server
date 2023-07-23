@@ -98,9 +98,7 @@ async function writeResponse(response: Response, res: http.ServerResponse) {
     key = key.toLowerCase();
     if (key === 'set-cookie') {
       // Multiple Set-Cookie headers should be treated as separate headers
-      // @ts-expect-error getAll is added to the Headers prototype by
-      // importing @miniflare/core
-      headers['set-cookie'] = response.headers.getAll('set-cookie');
+      headers['set-cookie'] = response.headers.get('set-cookie') as string;
     } else if (key !== 'content-length') {
       // Content-Length has special handling below
       headers[key] = value;
