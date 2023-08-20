@@ -98,7 +98,11 @@ async function writeResponse(response: Response, res: http.ServerResponse) {
     key = key.toLowerCase();
     if (key === 'set-cookie') {
       // Multiple Set-Cookie headers should be treated as separate headers
-      headers['set-cookie'] = response.headers.get('set-cookie') as string;
+      if (headers['set-cookie']) {
+        (headers['set-cookie'] as string[]).push(value);
+      } else {
+        headers['set-cookie'] = [value];
+      }
     } else if (key !== 'content-length') {
       // Content-Length has special handling below
       headers[key] = value;
