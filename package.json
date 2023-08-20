@@ -1,6 +1,6 @@
 {
   "name": "node-edge-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Edge server for Node.js",
   "main": "dist/index.js",
   "module": "dist/esm/index.mjs",

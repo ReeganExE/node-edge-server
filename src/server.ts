@@ -92,14 +92,14 @@ export function createRequestListener(fetchHandler: FetchHandler) {
 
 // Reverse of https://github.com/cloudflare/miniflare/blob/7e4d906e19cc69cd3446512bfeb7f8aee3a2bda7/packages/http-server/src/index.ts#L135
 async function writeResponse(response: Response, res: http.ServerResponse) {
-  const headers: http.OutgoingHttpHeaders = {};
+  const headers: http.OutgoingHttpHeaders & { 'set-cookie'?: string[] } = {};
   // eslint-disable-next-line prefer-const
   for (let [key, value] of response.headers) {
     key = key.toLowerCase();
     if (key === 'set-cookie') {
       // Multiple Set-Cookie headers should be treated as separate headers
       if (headers['set-cookie']) {
-        (headers['set-cookie'] as string[]).push(value);
+        headers['set-cookie'].push(value);
       } else {
         headers['set-cookie'] = [value];
       }
